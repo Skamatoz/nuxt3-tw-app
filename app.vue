@@ -7,27 +7,68 @@
             </div>
         </div>
 
+        <div @click="toggleSidebar" v-if="isOpen" class="fixed inset-0 bg-black bg-opacity-50 transition-opacity "></div>
+
         <!-- Слайдер -->
         <div :class="{'translate-x-0': isOpen, '-translate-x-full': !isOpen}" class=" h-screen transition-transform duration-500 fixed top-0 ">
             <div class=" block h-full w-80 border bg-gray-50 p-3">
-                <div class="flex flex-col bg-gray-200 w-full h-screen">
-                    <!-- слайдер хедер -->
-                    <div class="bg-gray-300 h-20 mb-2 p-2 flex gap-2 ">
-                        <div class="border border-red-300 w-16"></div>
-                        <div class="border border-red-300 flex-grow flex justify-end items-center">
-                            <h1 class=" text-xm text-gray-600">Семён Богданов</h1>
+            <!-- Блок всего слайдера bg-gray-200 -->
+                <div class="flex flex-col w-full h-screen">
+                    <!-- слайдер хедер bg-gray-300 -->
+                    <div class=" h-20 mb-2 gap-1 p-3 flex ">
+                        <div class="  p-1">
+                            <div class="p-4 bg-gray-900 h-full w-full rounded-xl flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path fill="#ffffff" d="M4 5h16V3H4zm16 4H4V7h16zM9 13h6v-2h6v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-9h6z"/></svg>
+                            </div>
+                        </div>
+                        <div class=" w-full flex-col flex items-start justify-center">
+                            <h1 class=" text-xm text-gray-600 font-semibold">Семён Богданов</h1>
+                            <span class=" text-xs text-gray-600">Личный кабинет</span>
                         </div>
                     </div>
-                    <!-- слайдер боди -->
-                    <div class="bg-gray-300 flex-1 min-h-96 mb-2 p-3">
-                        <ul class="flex-col mb-2 bg-gray-400 ">
-                            <li class="bg-red-200 h-20"></li>
-                            <li class="bg-green-200 h-20"></li>
-                            <li class="bg-blue-200 h-20"></li>
+                    <!-- слайдер боди bg-gray-300-->
+                    <div class=" flex-1 min-h-96 mb-2 p-3">
+                    <label for="" class="inline-block mb-3 text-sm text-gray-400 px-4">Разделы</label>
+                        <ul class=" block flex-col mb-2">
+
+                            <li class="flex-row mb-2 hover:bg-gray-200 h-14 rounded-lg flex justify-between items-center px-4">
+                            <p class="text-gray-600">Личный профиль</p>
+                            <svg class="" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="#888888" d="M12.172 12L9.343 9.173l1.415-1.414L15 12l-4.242 4.242l-1.415-1.414z"/></svg>
+                            </li>
+
+                            <li class="flex-row mb-2 hover:bg-gray-200 h-14 rounded-lg flex justify-between items-center px-4">
+                            <p class="text-gray-600">Видеозаписи</p>
+                            <svg class="" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="#888888" d="M12.172 12L9.343 9.173l1.415-1.414L15 12l-4.242 4.242l-1.415-1.414z"/></svg>
+                            </li>
+
+                            <li class="flex-row mb-2 hover:bg-gray-200 h-14 rounded-lg flex justify-between items-center px-4">
+                            <p class="text-gray-600">Вебинары</p>
+                            <svg class="" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="#888888" d="M12.172 12L9.343 9.173l1.415-1.414L15 12l-4.242 4.242l-1.415-1.414z"/></svg>
+                            </li>
                         </ul>
+
+                        <label for="" class="inline-block mb-3 text-sm text-gray-400 px-4 mt-6">Разделы</label>
+                            <ul class=" block flex-col mb-2">
+
+                                <li class="flex-row mb-2 hover:bg-gray-200 h-14 rounded-lg flex justify-between items-center px-4">
+                                <p class="text-gray-600">Личный профиль</p>
+                                <svg class="" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="#888888" d="M12.172 12L9.343 9.173l1.415-1.414L15 12l-4.242 4.242l-1.415-1.414z"/></svg>
+                                </li>
+
+                                <li class="flex-row mb-2 hover:bg-gray-200 h-14 rounded-lg flex justify-between items-center px-4">
+                                <p class="text-gray-600">Видеозаписи</p>
+                                <svg class="" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="#888888" d="M12.172 12L9.343 9.173l1.415-1.414L15 12l-4.242 4.242l-1.415-1.414z"/></svg>
+                                </li>
+
+                                <li class="flex-row mb-2 hover:bg-gray-200 h-14 rounded-lg flex justify-between items-center px-4">
+                                <p class="text-gray-600">Вебинары</p>
+                                <svg class="" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="#888888" d="M12.172 12L9.343 9.173l1.415-1.414L15 12l-4.242 4.242l-1.415-1.414z"/></svg>
+                                </li>
+                            </ul>
+
                     </div>
-                    <!-- слайдер футер -->
-                    <div class="bg-gray-300 h-20">
+                    <!-- слайдер футер bg-gray-300-->
+                    <div class="h-20">
                     </div>
                 </div>
             </div>
